@@ -1,8 +1,9 @@
 Requirements
-- Open http://www.tutorialsninja.com/demo/ *
-- Select 2 iphones *
-- Take 1 screenshot *
-- Select 1 Laptop (HP LP3065)
-- Select delivery date: 31-12-2022
-- Create a guest account and complete the check out process
-- Print the total price and the confirmation message in the console 
+* Open http://www.tutorialsninja.com/demo/ +
+* Select 2 iphones +
+* Take 1 screenshot +
+* Select 1 Laptop (HP LP3065) +
+* Select delivery date: 31-12-2022 +
+* Remove IPhone from cart since they are out of stock 
+* Create a guest account and complete the check out process
+* Print the total price and the confirmation message in the console 

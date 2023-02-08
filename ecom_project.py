@@ -41,7 +41,7 @@ x_button = driver.find_element_by_xpath('//button[@title="Close (Esc)"]')
 x_button.click()
 time.sleep(1)
 
-# quantity
+# pick quantity
 quantity = driver.find_element_by_id('input-quantity')
 quantity.click()
 time.sleep(1)
@@ -56,13 +56,75 @@ add_to_cart = driver.find_element_by_id('button-cart')
 add_to_cart.click()
 time.sleep(1)
 
-# laptop
+# access all laptops and notebooks section
 laptops = driver.find_element_by_xpath('//a[text()="Laptops & Notebooks"]')
-action = ActionChains(driver)
-action.move_to_element(laptops).perform()
+action = ActionChains(driver) # allows access to mouse control
+action.move_to_element(laptops).perform() # mouse hovers over element we want to access
 show_all = driver.find_element_by_xpath('//a[text()="Show All Laptops & Notebooks"]')
 show_all.click()
 time.sleep(1)
+
+# click on HP LP3065 laptop
+hp = driver.find_element_by_xpath('//a[text()="HP LP3065"]')
+hp.click()
+
+# scroll down
+add_to_button2 = driver.find_element_by_xpath('//button[@id="button-cart"]')
+add_to_button2.location_once_scrolled_into_view
+time.sleep(1)
+
+# select delivery date (December 31st, 2022)
+calendar = driver.find_element_by_xpath('//i[@class="fa fa-calendar"]')
+calendar.click()
+time.sleep(1)
+
+next_click_calendar = driver.find_element_by_xpath('//th[@class="next"]')
+month_year = driver.find_element_by_xpath('//th[@class="picker-switch"]')
+while month_year.text != 'December 2022':
+    next_click_calendar.click()
+time.sleep(2)
+
+calendar_date = driver.find_element_by_xpath('//td[text()="31"]')
+calendar_date.click()
+time.sleep(2)
+
+# add to cart
+add_to_button2.click()
+
+# Checkout
+go_to_cart = driver.find_element_by_id('cart-total')
+go_to_cart.click()
+time.sleep(1)
+
+checkout = driver.find_element_by_xpath('//p[@class="text-right"]/a[2]')
+checkout.click()
+time.sleep(1)
+
+# Checkout issue, IPhone is not in stock, so we will remove it from cart then resume checkout process
+remove_iphone = driver.find_element_by_xpath('//button[@class="btn btn-danger"]')
+remove_iphone.click()
+time.sleep(1)
+
+checkout = driver.find_element_by_xpath('//a[@class="btn btn-primary"]')
+checkout.click()
+time.sleep(1)
+
+# Step 1: Checkout Options
+guest_checkout = driver.find_element_by_xpath('//input[@value="guest"]')
+guest_checkout.click()
+
+continue_button = driver.find_element_by_xpath('//input[@value="Continue"]')
+continue_button.click()
+
+# Step 2: Billing Details
+
+
+
+
+
+
+
+
 
 
 
